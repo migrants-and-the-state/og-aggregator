@@ -27,7 +27,8 @@ namespace :build do
 
     OG_IDS.each do |og_id|
       url     = "https://migrants-and-the-state.github.io/#{og_id.downcase}/index.json"
-      hashes  = JSON.parse HTTParty.get(url).body
+      hashes  = JSON.parse(HTTParty.get(url).body)
+      hashes.map! { |h| h['order_group'] = og_id; h }
       puts "Adding #{hashes.length} items from #{og_id} to the index"
       hashes.each { |hash| index << hash }
     end

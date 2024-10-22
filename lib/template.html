@@ -30,7 +30,7 @@
             <thead>
               <tr>
                 <td>item id</td>
-                <td>label</td>
+                <td>order group</td>
                 <td>thumbnnail</td>
                 <td>iiif manifest</td>
                 <td>view in viewpoint</td>
@@ -40,7 +40,7 @@
               {% for item in items | limit: 1000 %}
               <tr>
                 <td><b>{{ item.id }}</b></td>
-                <td>{{ item.label }}</td>
+                <td>{{ item.order_group }}</td>
                 <td><a target='_blank' href='{{ item.thumbnail_url }}'><img style="height:100px;width:auto" class='lazy' data-original="{{ item.thumbnail_url }}"/></a></td>
                 <td><a target='_blank' href='{{ item.manifest_url }}'><img alt='Thumbnail {{ item.label }}' src='https://upload.wikimedia.org/wikipedia/commons/e/e8/International_Image_Interoperability_Framework_logo.png' style="width:25px"/></a></td>
                 <td><a target='_blank' class='is-size-7' href='{{ item.viewpoint_url }}'>{{ item.viewpoint_url }}</a></td>
